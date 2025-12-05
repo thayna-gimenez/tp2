@@ -1,0 +1,146 @@
+Start:
+  Preamble
+  Scene?
+  EOF
+
+Preamble:
+  (Include | Declaration | Material)*
+
+Include:
+  INCLUDE Filename
+
+Filename:
+  STRING
+
+Declaration:
+  DEFINE NAME "="? Initializer
+
+Initializer:
+  Expression
+
+Material:
+  MATERIAL STRING
+  "{"
+      MaterialItem*
+  "}"
+
+MaterialItem:
+  AMBIENT Color
+| DIFFUSE Color
+| SPOT Color
+| SHINE Float
+| SPECULAR Color
+| IOR Float
+| TRANSPARENCY Color
+
+Color:
+  Expression
+
+Float:
+  Expression
+
+Scene:
+  SCENE STRING?
+  "{"
+      Declaration*
+      Environment?
+      ObjectBlock
+  "}"
+
+Environment:
+  ENVIRONMENT "{" EnvironmentItem* "}"
+
+EnvironmentItem:
+  AMBIENT Color
+| BACKGROUND Color
+
+ObjectBlock:
+  (Object | Declaration)* "}"
+
+Object:
+  OBJECT STRING? ("{" ChildObjectBlock | Component)
+
+ChildObjectBlock:
+  Declaration*
+  Transform?
+  Component*
+  ObjectBlock
+
+Transform:
+  TRANSFORM "{" TransformItem* "}"
+
+TransformItem:
+  POSITION Vec3
+| ROTATION Vec3
+| SCALE Vec3
+
+Vec3:
+  Expression
+
+Component:
+  Camera
+| Light
+| Primitive
+
+Camera:
+  CAMERA "{" ProjectionType? CameraItem* "}"
+
+ProjectionType:
+  PARALLEL 
+| PERSPECTIVE
+
+CameraItem:
+  ASPECT Float
+| ANGLE Float
+| HEIGHT Float
+| DEPTH Vec2
+
+Vec2:
+  Expression
+
+Light:
+  LIGHT "{" LightType LightItem* "}"
+
+LightType:
+  POINT
+| DIRECTIONAL
+| SPOT
+
+LightItem:
+  COLOR Color
+| RANGE Float
+| ANGLE Float
+| FALLOFF Integer
+
+Integer:
+  Expression
+
+Primitive:
+  Mesh (MATERIAL STRING)?
+
+Mesh:
+| MESH STRING
+
+Expression:
+  Term ("+" Term | "-" Term)*
+
+Term:
+  Factor ("*" Factor | "/" Factor)*
+
+Factor:
+  "(" Expression ")"
+| "+" Expression
+| "-" Expression
+| NAME
+| INTEGER
+| FLOAT
+| RGB "(" Float "," Float "," Float ")"
+| "<" Float "," Float "," Float ">"
+| VEC2 "(" Float "," Float ")"
+| VEC3 "(" Float "," Float "," Float ")"
+| VEC4 "(" Float "," Float "," Float "," Float ")"
+| LENGTH "(" Vec3 ")"
+| NORMALIZE "(" Vec3 ")"
+| DOT "(" Vec3 "," Vec3 ")"
+| CROSS "(" Vec3 "," Vec3 ")"
+| AXES "(" Vec3 "," Vec3 ")"

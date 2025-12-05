@@ -1,0 +1,259 @@
+material "BronzeSpecular"
+{
+  ambient rgb(0.556962,0.183929,0.0399509)
+  diffuse rgb(0.966245,0.488309,0.195695)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Default"
+{
+  ambient rgb(1,0.860759,0)
+  diffuse rgb(1,0.632911,0)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(1,1,1)
+  ior 1
+}
+material "Material 10"
+{
+  ambient rgb(1,0.14902,0.14902)
+  diffuse rgb(1,0.443137,0.133333)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0.329114,0.329114,0.329114)
+  ior 1
+}
+material "Material 11"
+{
+  ambient rgb(0.763713,0.492051,0.286795)
+  diffuse rgb(0.797468,0.559927,0.228809)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(1,1,1)
+  ior 1
+}
+material "Material 21"
+{
+  ambient rgb(0.345992,0.227557,0.0233581)
+  diffuse rgb(0.472574,0.316867,0.0757713)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(1,1,1)
+  ior 1
+}
+material "Material 3"
+{
+  ambient rgb(0,0.328473,0.864979)
+  diffuse rgb(0.2827,0.591412,1)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(1,1,1)
+  ior 1
+}
+material "Material 5"
+{
+  ambient rgb(0.2,0.2,0.2)
+  diffuse rgb(0.2827,0.2827,0.2827)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 6"
+{
+  ambient rgb(0.987342,0.706163,0.470758)
+  diffuse rgb(0.818565,0.537141,0.276309)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 7"
+{
+  ambient rgb(0,0.584522,0.962025)
+  diffuse rgb(0,0.708861,1)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 8"
+{
+  ambient rgb(0.151899,0.559846,1)
+  diffuse rgb(0.49789,0.57416,1)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "WhiteSpecular"
+{
+  ambient rgb(1,0.147679,0.147679)
+  diffuse rgb(1,0.441596,0.135021)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+scene "Sistema Solar"
+{
+  environment
+  {
+    ambient rgb(0.501961,0.501961,0.501961)
+    background rgb(0,0,0)
+  }
+  object "Main Camera"
+  {
+    transform
+    {
+      position <-190,52,-28>
+      rotation <-11.3683,-127.838,-0.000169818>
+    }
+    camera
+    {
+      perspective
+      angle 29
+      aspect 1.77778
+      depth vec2(0.01,1000)
+    }
+  }
+  object "Sol"
+  {
+    transform
+    {
+      scale <50,50,50>
+    }
+    mesh "Sphere" material "Default"
+  }
+  object "Mercúrio"
+  {
+    transform
+    {
+      position <0,0,65>
+      scale <4,4,4>
+    }
+    mesh "Sphere" material "Material 5"
+  }
+  object "Venus"
+  {
+    transform
+    {
+      position <0,0.2,86>
+      scale <6,6,6>
+    }
+    mesh "Sphere" material "WhiteSpecular"
+  }
+  object "Terra"
+  {
+    transform
+    {
+      position <0,0,110>
+      rotation <-6.3,0,0>
+      scale <9,9,9>
+    }
+    mesh "Sphere" material "Material 3"
+  }
+  object "Jupiter"
+  {
+    transform
+    {
+      position <0,0,170>
+      scale <17,17,17>
+    }
+    mesh "Sphere" material "BronzeSpecular"
+  }
+  object "Marte"
+  {
+    transform
+    {
+      position <0,0,140>
+      scale <6,6,6>
+    }
+    mesh "Sphere" material "Material 21"
+  }
+  object "Saturno"
+  {
+    transform
+    {
+      position <0,0,220>
+      scale <15,15,15>
+    }
+    mesh "Sphere" material "Material 6"
+  }
+  object "Urano"
+  {
+    transform
+    {
+      position <0,0,260>
+      scale <6,6,6>
+    }
+    mesh "Sphere" material "Material 8"
+  }
+  object "Netuno"
+  {
+    transform
+    {
+      position <0,0,290>
+      scale <8,8,8>
+    }
+    mesh "Sphere" material "Material 7"
+  }
+  object "Saturno"
+  {
+    transform
+    {
+      position <0,0,220>
+      scale <25,0.001,24>
+    }
+    mesh "Sphere" material "Material 11"
+  }
+  object "Light 1"
+  {
+    transform
+    {
+      // identity
+    }
+    light
+    {
+      point
+      range 0
+      falloff 0
+      color rgb(1,1,1)
+    }
+  }
+  object "Light 1"
+  {
+    transform
+    {
+      position <-240,120,170>
+    }
+    light
+    {
+      directional
+      color rgb(1,1,1)
+    }
+  }
+  object "Terra"
+  {
+    transform
+    {
+      position <0,0,110>
+      rotation <-6.3,0,0>
+      scale <6,6,6>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+}

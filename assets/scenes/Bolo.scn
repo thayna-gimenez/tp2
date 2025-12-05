@@ -1,0 +1,215 @@
+material "Default"
+{
+  ambient rgb(1,0.665118,0.198312)
+  diffuse rgb(1,0.835443,0)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(1,1,1)
+  ior 1
+}
+material "Material 10"
+{
+  ambient rgb(0.907173,0.242165,0.206698)
+  diffuse rgb(0.881857,0,0)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 11"
+{
+  ambient rgb(0.2,0.2,0.2)
+  diffuse rgb(0.373196,0.217024,0.485232)
+  spot rgb(1,1,1)
+  shine 150
+  specular rgb(1,1,1)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 5"
+{
+  ambient rgb(0.2,0.2,0.2)
+  diffuse rgb(0.8,0.8,0.8)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+material "Material 8"
+{
+  ambient rgb(0.253165,0.194346,0.0929338)
+  diffuse rgb(0.303797,0.153822,0)
+  spot rgb(1,1,1)
+  shine 100
+  specular rgb(0,0,0)
+  transparency rgb(0,0,0)
+  ior 1
+}
+scene "Bolo"
+{
+  environment
+  {
+    ambient rgb(0,0,0)
+    background rgb(0,0,0)
+  }
+  object "Main Camera"
+  {
+    transform
+    {
+      position <9.83659,10.7026,-5.34485>
+      rotation <-39,122.4,3.95496e-05>
+    }
+    camera
+    {
+      perspective
+      angle 60
+      aspect 1.77778
+      depth vec2(0.01,1000)
+    }
+  }
+  object "Directional Light"
+  {
+    transform
+    {
+      position <-5.9,14,14>
+      rotation <30,162,175.7>
+    }
+    light
+    {
+      directional
+      color rgb(1,1,1)
+    }
+  }
+  object "Cylinder 4"
+  {
+    transform
+    {
+      scale <4,4,4>
+    }
+    mesh "Cylinder" material "Material 8"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <-2.1,4,1.8>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <1.2e-07,4,2.8>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <2,4,1.8>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <2.6,4,-0.3>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Cylinder 1"
+  {
+    transform
+    {
+      scale <5.8,0.2,5.8>
+    }
+    mesh "Cylinder" material "Material 11"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <1.7,4,-2.3>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <-0.7,4,-2.5>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Sphere 6"
+  {
+    transform
+    {
+      position <-2.4,4,-0.7>
+    }
+    mesh "Sphere" material "Material 10"
+  }
+  object "Cylinder 2"
+  {
+    transform
+    {
+      position <0,4,0>
+      scale <0.1,2.2,0.1>
+    }
+    mesh "Cylinder" material "Material 5"
+  }
+  object "Cone 3"
+  {
+    transform
+    {
+      position <0,6.2,0>
+      scale <0.1,1,0.1>
+    }
+    mesh "Cone" material "Default"
+  }
+  object "Directional Light"
+  {
+    transform
+    {
+      position <-7,22,2.7>
+      rotation <70,116,-174.9>
+    }
+    light
+    {
+      directional
+      color rgb(1,1,1)
+    }
+  }
+  object "Directional Light"
+  {
+    transform
+    {
+      position <0,2,0>
+      rotation <20,-150,175.7>
+    }
+    light
+    {
+      directional
+      color rgb(1,1,1)
+    }
+  }
+  object "Directional Light"
+  {
+    transform
+    {
+      position <35,24,-4.9>
+      rotation <60,-126,174.3>
+    }
+    light
+    {
+      directional
+      color rgb(1,1,1)
+    }
+  }
+}
